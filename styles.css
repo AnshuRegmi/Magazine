@@ -1,0 +1,163 @@
+/* ========================================
+   CUSTOM CSS VARIABLES (Color Palette)
+   ======================================== */
+
+/* Define reusable color variables for consistent design */
+:root {
+  --color-primary: #111111; /* Deep black for text and dark elements */
+  --color-secondary: #f7f5f0; /* Warm off-white (beige) for backgrounds */
+  --color-accent: #3a4e5a; /* Muted teal/gray for highlights and buttons */
+  --color-text-body: #4a4a4a; /* Medium gray for body text */
+}
+
+/* ========================================
+   FONT DEFINITIONS
+   ======================================== */
+
+/* Montserrat font for bold headlines with extra weight (900) */
+.font-headline {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Literata serif font for body text (more readable for paragraphs) */
+.font-body {
+  font-family: "Literata", serif;
+}
+
+/* ========================================
+   GLOBAL BODY STYLES
+   ======================================== */
+
+/* Apply background color and text color to entire page */
+body {
+  background-color: var(--color-secondary); /* Beige background */
+  color: var(--color-text-body); /* Gray text */
+}
+
+/* ========================================
+   ANIMATIONS AND TRANSITIONS
+   ======================================== */
+
+/* Fade-in and slide-up animation for content reveals */
+.animated-content {
+  opacity: 0; /* Start invisible */
+  transform: translateY(10px); /* Start 10px below normal position */
+  animation: fadeInSlideUp 1s ease-out forwards; /* Apply animation */
+}
+
+/* Keyframes define the animation steps */
+@keyframes fadeInSlideUp {
+  to {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+/* Hover effect for article cards - subtle lift on hover */
+.article-card {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth transition */
+  cursor: pointer; /* Show pointer cursor to indicate clickability */
+}
+
+.article-card:hover {
+  transform: translateY(-2px); /* Lift card 2px upward */
+  opacity: 0.95; /* Slightly reduce opacity */
+}
+
+/* ========================================
+   TYPOGRAPHY STYLING
+   ======================================== */
+
+/* Styling for massive hero text on cover page */
+.massive-headline {
+  line-height: 0.9; /* Tight line spacing for stacked look */
+  text-transform: uppercase; /* All caps */
+  font-weight: 900; /* Extra bold weight */
+}
+
+/* Custom horizontal separator line */
+.hr-line {
+  width: 100%; /* Full width */
+  height: 1px; /* Thin line */
+  background-color: var(--color-primary); /* Black color */
+  opacity: 0.15; /* Very transparent for subtlety */
+  margin: 4rem 0; /* Vertical spacing */
+}
+
+/* Text link hover effect */
+.text-link {
+  transition: color 0.2s ease-in-out; /* Smooth color transition */
+}
+
+.text-link:hover {
+  color: var(--color-accent); /* Change to accent color on hover */
+}
+
+/* ========================================
+   DARK FEATURE BLOCK STYLING
+   ======================================== */
+
+/* Dark background section with inverted colors */
+.dark-feature-block {
+  background-color: var(--color-primary); /* Black background */
+  color: var(--color-secondary); /* Off-white text */
+}
+
+/* ========================================
+   SHOPPING CART DRAWER STYLES
+   ======================================== */
+
+/* Shopping cart sidebar panel */
+#cart-drawer {
+  position: fixed; /* Fixed to viewport */
+  top: 0; /* Align to top */
+  right: 0; /* Align to right edge */
+  width: 100%; /* Full width on mobile */
+  max-width: 400px; /* Max 400px on larger screens */
+  height: 100%; /* Full viewport height */
+  background-color: var(--color-primary); /* Black background */
+  color: var(--color-secondary); /* White text */
+  transform: translateX(100%); /* Initially hidden off-screen to the right */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth slide animation */
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5); /* Left shadow for depth */
+  z-index: 999; /* High z-index to appear above content */
+}
+
+/* When cart drawer has "open" class, slide into view */
+#cart-drawer.open {
+  transform: translateX(0); /* Move to normal position (visible) */
+}
+
+/* Dark backdrop overlay behind cart drawer */
+#cart-backdrop {
+  position: fixed; /* Fixed to viewport */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover entire viewport */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  z-index: 998; /* Just below cart drawer */
+  opacity: 0; /* Initially invisible */
+  pointer-events: none; /* Don't block clicks when hidden */
+  transition: opacity 0.3s; /* Fade in/out transition */
+}
+
+/* When backdrop has "open" class, make it visible and clickable */
+#cart-backdrop.open {
+  opacity: 1; /* Fully visible */
+  pointer-events: auto; /* Enable clicks (for closing) */
+}
+
+/* ========================================
+   PAGE VIEW ROUTING SYSTEM
+   ======================================== */
+
+/* Hide all page sections by default */
+.page-view {
+  display: none; /* Hidden by default */
+}
+
+/* Show only the page with "active" class */
+.page-view.active {
+  display: block; /* Make visible */
+}

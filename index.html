@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!-- Declares HTML5 document type -->
+<html lang="en">
+  <!-- Root element with English language attribute -->
+  <head>
+    <!-- Meta information section -->
+    <meta charset="UTF-8" />
+    <!-- Sets character encoding to UTF-8 for international characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Makes website responsive on mobile devices -->
+    <title>THE WELLNESS ARCHIVE - Health & Lifestyle</title>
+    <!-- Browser tab title -->
+
+    <!-- External CSS and JavaScript libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Loads Tailwind CSS framework for styling -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Literata:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Loads custom fonts: Montserrat for headlines, Literata for body text -->
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+      // Configures Tailwind to use custom CSS variables
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // Extends Tailwind's color palette with custom colors
+              primary: "var(--color-primary)", // Deep black
+              accent: "var(--color-accent)", // Teal/gray
+              secondary: "var(--color-secondary)", // Off-white
+              body: "var(--color-text-body)", // Gray text
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-body overflow-x-hidden">
+    <!-- Body with default font and prevents horizontal scrolling -->
+
+    <!-- ========== HEADER SECTION ========== -->
+    <header class="sticky top-0 z-50 bg-secondary border-b border-primary/10">
+      <!-- Sticky header that stays at top when scrolling, with high z-index -->
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex justify-between items-center"
+      >
+        <!-- Container with max width, centered, flexbox layout -->
+
+        <!-- Logo - Links to home/cover page -->
+        <a
+          href="#cover"
+          class="font-headline text-2xl font-black text-primary tracking-wider transition duration-300"
+          onclick="navigateTo('cover', null, event)"
+        >
+          <!-- Logo link with click handler for navigation -->
+          UniqueMag
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+          <!-- Hidden on mobile, visible on medium+ screens -->
+          <a
+            href="#featured"
+            class="text-body text-link p-2"
+            onclick="navigateTo('featured', null, event)"
+            >Featured</a
+          >
+          <a
+            href="#editorial"
+            class="text-body text-link p-2"
+            onclick="navigateTo('editorial', null, event)"
+            >Editorial</a
+          >
+          <a
+            href="#shop"
+            class="text-body text-link p-2"
+            onclick="navigateTo('shop', null, event)"
+            >Shop</a
+          >
+        </nav>
+
+        <!-- Shopping Cart Button -->
+        <button
+          class="p-2 rounded-full hover:bg-primary/5 transition duration-150 relative"
+          onclick="toggleCartDrawer(true)"
+        >
+          <!-- Button with hover effect and relative positioning for badge -->
+          <!-- Cart Icon SVG -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+            />
+          </svg>
+          <!-- Cart Count Badge -->
+          <span
+            id="cart-count"
+            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-secondary transform translate-x-1/2 -translate-y-1/2 bg-accent rounded-full"
+          >
+            <!-- Badge positioned at top-right corner showing number of items -->
+            0
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Main content area -->
+
+      <!-- ========== COVER PAGE ========== -->
+      <section id="page-cover" class="page-view bg-secondary">
+        <!-- Landing page section -->
+        <div
+          class="max-w-7xl mx-auto px-6 lg:px-8 py-24 md:py-32 text-center h-screen-75 flex flex-col justify-center items-center"
+        >
+          <!-- Centered content container with vertical centering -->
+          <p
+            class="font-headline text-lg uppercase tracking-widest text-accent mb-4 animated-content"
+            style="animation-delay: 0.1s"
+          >
+            <!-- Subtitle with animation delay -->
+            The Quarterly Edition
+          </p>
+          <h1
+            class="font-headline text-7xl sm:text-9xl font-black text-primary massive-headline animated-content"
+            style="animation-delay: 0.2s; line-height: 0.85"
+          >
+            <!-- Large headline with tight line spacing -->
+            <span class="block">UNIQUE</span>
+            <span class="block text-accent">MAG</span>
+          </h1>
+          <p
+            class="font-body text-2xl mt-8 max-w-xl text-body animated-content"
+            style="animation-delay: 0.3s"
+          >
+            <!-- Description text with animation -->
+            Curated insights for holistic well-being and elevated living.
+          </p>
+          <button
+            onclick="navigateTo('featured', null, event)"
+            class="mt-12 px-8 py-3 bg-primary text-secondary font-headline font-semibold text-lg rounded-full hover:bg-accent transition duration-300 animated-content"
+            style="animation-delay: 0.4s"
+          >
+            <!-- Call-to-action button -->
+            Enter Archive &rarr;
+          </button>
+        </div>
+      </section>
+
+      <!-- ========== FEATURED PAGE ========== -->
+      <section
+        id="page-featured"
+        class="page-view dark-feature-block min-h-screen"
+      >
+        <!-- Featured article section with dark background -->
+        <div
+          class="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-32 md:pt-32 md:pb-40 grid grid-cols-1 lg:grid-cols-12 gap-10"
+        >
+          <!-- 12-column grid layout for responsive design -->
+
+          <!-- Left side: Large headline -->
+          <div class="lg:col-span-8">
+            <!-- Takes 8 columns on large screens -->
+            <h1
+              class="font-headline text-5xl sm:text-7xl xl:text-8xl text-secondary massive-headline animated-content"
+            >
+              BRINGING
+              <span class="block">HEALTHY SPIRIT</span>
+              ADDING A
+              <span
+                class="text-accent inline-block border-b-2 border-accent/50 pb-1"
+                >MOMENT OF GOOD</span
+              >
+              <span class="block">READING</span>
+            </h1>
+          </div>
+
+          <!-- Right side: Featured article preview -->
+          <div
+            class="lg:col-span-4 flex flex-col pt-4 lg:pt-0 animated-content"
+            style="animation-delay: 0.1s"
+          >
+            <!-- Takes 4 columns on large screens -->
+            <p
+              class="text-sm font-headline uppercase tracking-widest text-accent mb-6"
+            >
+              Featured Editorial
+            </p>
+            <h2
+              class="font-headline text-3xl font-bold mb-4 text-secondary leading-snug"
+            >
+              Strategies to Ease Anxiety in Under 5 Minutes
+            </h2>
+            <p class="text-gray-400 font-body text-lg mb-8">
+              The definitive guide to psychological tools and breathwork
+              techniques used by experts to instantly shift focus and calm the
+              nervous system...
+            </p>
+            <a
+              href="#article-detail-anxiety"
+              class="text-accent text-lg font-medium tracking-wider hover:text-secondary transition duration-200 uppercase"
+              onclick="navigateTo('article-detail', 'anxiety', event)"
+            >
+              <!-- Link to full article -->
+              Read Now &rarr;
+            </a>
+
+            <!-- Decorative image -->
+            <img
+              class="w-2/3 h-auto mt-12 self-start rounded-lg opacity-80"
+              src="https://t3.ftcdn.net/jpg/16/28/70/22/360_F_1628702277_Jnvvc3xnQzap3cdJXXMSV5UZNoGWYBYf.jpg"
+              alt="Mind Focus Image"
+            />
+          </div>
+        </div>
+
+        <!-- Editor's note section -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-20">
+          <h3 class="font-headline text-3xl text-secondary font-bold mb-8">
+            From the Editor's Desk
+          </h3>
+          <p class="text-gray-400 max-w-3xl text-lg">
+            In this month's featured piece, we delve into the intersection of
+            technology and mental health, exploring how digital detoxes and
+            mindful app usage can redefine our relationship with stress. A
+            necessary read for modern living.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========== EDITORIAL PAGE ========== -->
+      <section
+        id="page-editorial"
+        class="page-view py-20 md:py-28 max-w-7xl mx-auto px-6 lg:px-8 min-h-screen"
+      >
+        <!-- Article listing page -->
+        <h2
+          class="font-headline text-4xl font-extrabold mb-16 text-primary animated-content"
+        >
+          Today's Curated Reading
+        </h2>
+
+        <!-- Grid of article cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+          <!-- 2-column grid on medium+ screens -->
+
+          <!-- Article Card 1: Nutrition -->
+          <div
+            class="article-card flex space-x-6 animated-content"
+            style="animation-delay: 0.1s"
+          >
+            <!-- Flexbox layout with image and text side by side -->
+            <img
+              class="w-32 h-32 object-cover rounded-md shadow-md"
+              src="https://cdn.loveandlemons.com/wp-content/uploads/2022/09/overnight-oats.jpg"
+              alt="Healthy Food"
+            />
+            <div class="flex-grow">
+              <!-- Content area that grows to fill space -->
+              <p
+                class="text-sm uppercase tracking-widest text-accent font-semibold mb-2"
+              >
+                NUTRITION
+              </p>
+              <a
+                href="#article-detail-oats"
+                onclick="navigateTo('article-detail', 'oats', event)"
+                class="font-headline text-2xl font-bold mb-3 text-primary text-link block"
+              >
+                The Simple Power of Overnight Oats: 5 Recipes
+              </a>
+              <p class="text-base text-body">
+                A deep dive into why this breakfast staple is the perfect fuel
+                for your morning routine, balancing fiber and sustained energy
+                release...
+              </p>
+            </div>
+          </div>
+
+          <!-- Article Card 2: Mind & Spirit -->
+          <div
+            class="article-card flex space-x-6 animated-content"
+            style="animation-delay: 0.2s"
+          >
+            <img
+              class="w-32 h-32 object-cover rounded-md shadow-md"
+              src="https://t3.ftcdn.net/jpg/16/28/70/22/360_F_1628702277_Jnvvc3xnQzap3cdJXXMSV5UZNoGWYBYf.jpg"
+              alt="Meditation Image"
+            />
+            <div class="flex-grow">
+              <p
+                class="text-sm uppercase tracking-widest text-accent font-semibold mb-2"
+              >
+                MIND & SPIRIT
+              </p>
+              <a
+                href="#article-detail-vagus"
+                onclick="navigateTo('article-detail', 'vagus', event)"
+                class="font-headline text-2xl font-bold mb-3 text-primary text-link block"
+              >
+                Understanding Your Vagus Nerve: The Master Regulator
+              </a>
+              <p class="text-base text-body">
+                We explore the psychological tools and breathwork techniques
+                used by experts to instantly shift your focus and calm the
+                nervous system...
+              </p>
+            </div>
+          </div>
+
+          <!-- Additional article cards follow same pattern... -->
+          <!-- (Remaining article cards omitted for brevity but follow same structure) -->
+        </div>
+        <div class="hr-line"></div>
+        <!-- Horizontal separator line -->
+      </section>
+
+      <!-- ========== ARTICLE DETAIL PAGE ========== -->
+      <section
+        id="page-article-detail"
+        class="page-view py-16 md:py-24 max-w-4xl mx-auto px-6 lg:px-8 min-h-screen"
+      >
+        <!-- Individual article view -->
+        <button
+          onclick="window.history.back();"
+          class="text-accent hover:text-primary transition duration-150 mb-8 flex items-center"
+        >
+          <!-- Back button using browser history -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Back to Archive
+        </button>
+
+        <div id="article-content-container">
+          <!-- Container where article content will be loaded dynamically -->
+          <p class="text-center text-xl text-gray-500">Loading Article...</p>
+        </div>
+      </section>
+
+      <!-- ========== SHOP PAGE ========== -->
+      <section
+        id="page-shop"
+        class="page-view pb-20 md:pb-32 max-w-7xl mx-auto px-6 lg:px-8 min-h-screen"
+      >
+        <!-- E-commerce product listing page -->
+        <h2
+          class="font-headline text-4xl font-extrabold mb-16 text-primary animated-content"
+        >
+          The Apothecary Collection
+        </h2>
+
+        <div
+          id="product-list"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          <!-- Grid for product cards, 4 columns on large screens -->
+          <!-- Product cards will be generated by JavaScript -->
+        </div>
+
+        <!-- Notification message box -->
+        <div
+          id="message-box"
+          class="fixed bottom-8 right-8 bg-primary text-secondary p-4 rounded-lg shadow-2xl opacity-0 transition duration-300 pointer-events-none z-50"
+        >
+          <!-- Fixed position notification that fades in/out -->
+          Item successfully added to ritual.
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== SHOPPING CART DRAWER ========== -->
+    <div id="cart-backdrop" onclick="toggleCartDrawer(false)"></div>
+    <!-- Dark overlay background when cart is open -->
+
+    <div id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <!-- Slide-out cart panel from right side -->
+      <div class="p-6 md:p-8 flex flex-col h-full">
+        <!-- Full height flex container -->
+
+        <!-- Cart header -->
+        <div
+          class="flex justify-between items-center pb-4 border-b border-gray-700"
+        >
+          <h3 id="cart-title" class="font-headline text-3xl font-bold">
+            Your Ritual
+          </h3>
+          <button
+            onclick="toggleCartDrawer(false)"
+            class="text-gray-400 hover:text-accent p-2 transition duration-150"
+          >
+            <!-- Close button -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Cart items container (scrollable) -->
+        <div
+          id="cart-items-container"
+          class="flex-grow overflow-y-auto py-6 space-y-4"
+        >
+          <!-- Scrollable area for cart items -->
+          <p class="text-gray-400 text-center" id="empty-cart-message">
+            Your cart is empty.
+          </p>
+        </div>
+
+        <!-- Cart summary and checkout -->
+        <div id="cart-summary" class="pt-6 border-t border-gray-700">
+          <div class="flex justify-between text-xl font-bold mb-4">
+            <span>Subtotal:</span>
+            <span id="cart-total">$0.00</span>
+            <!-- Total price display -->
+          </div>
+          <button
+            class="w-full bg-accent text-primary py-3 rounded-lg font-bold text-lg hover:bg-opacity-80 transition duration-200"
+          >
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-primary text-secondary py-16 md:py-20">
+      <!-- Footer with dark background -->
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12"
+      >
+        <!-- 4-column grid layout -->
+
+        <!-- Footer column 1: Branding -->
+        <div>
+          <h4
+            class="font-headline text-2xl font-bold mb-5 text-secondary uppercase"
+          >
+            UniqueMag
+          </h4>
+          <p class="text-sm text-gray-400">
+            Curated stories for a healthy spirit and a mindful life.
+          </p>
+        </div>
+
+        <!-- Footer column 2: Site sections -->
+        <div>
+          <h4 class="font-bold text-lg mb-5 text-secondary">Sections</h4>
+          <ul class="space-y-3 text-base">
+            <li>
+              <a
+                href="#editorial"
+                onclick="navigateTo('editorial', null, event)"
+                class="text-gray-400 hover:text-accent transition duration-150"
+                >Editorial</a
+              >
+            </li>
+            <li>
+              <a
+                href="#featured"
+                onclick="navigateTo('featured', null, event)"
+                class="text-gray-400 hover:text-accent transition duration-150"
+                >Featured</a
+              >
+            </li>
+            <li>
+              <a
+                href="#shop"
+                onclick="navigateTo('shop', null, event)"
+                class="text-gray-400 hover:text-accent transition duration-150"
+                >Shop</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Footer column 3: Social links -->
+        <div>
+          <h4 class="font-bold text-lg mb-5 text-secondary">Follow</h4>
+          <ul class="space-y-3 text-base">
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-accent transition duration-150"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-accent transition duration-150"
+                >Pinterest</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-accent transition duration-150"
+                >RSS Feed</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Footer column 4: Newsletter signup -->
+        <div>
+          <h4 class="font-bold text-lg mb-5 text-secondary">Newsletter</h4>
+          <form
+            onsubmit="event.preventDefault(); showMessage('Thank you for subscribing to our weekly wisdom digest!');"
+          >
+            <!-- Form that prevents default submission -->
+            <input
+              type="email"
+              placeholder="Your Email Address"
+              class="w-full p-3 rounded-md bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:ring-accent focus:border-accent"
+            />
+            <button
+              type="submit"
+              class="mt-3 w-full bg-accent text-primary py-3 rounded-lg font-bold hover:bg-opacity-80 transition duration-200 shadow-md"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright notice -->
+      <div
+        class="mt-12 text-center text-sm text-gray-500 border-t border-gray-800 pt-8"
+      >
+        &copy; 2024 UniqueMag. All Rights Reserved.
+      </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
