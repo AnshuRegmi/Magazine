@@ -3,13 +3,13 @@
    ======================================== */
 /* Define reusable color variables for the entire website */
 :root {
-  --color-primary: #111111;      /* Deep black for text and dark elements */
-  --color-secondary: #f7f5f0;    /* Warm off-white (beige) for backgrounds */
-  --color-accent: #3a4e5a;       /* Muted teal/gray for highlights */
-  --color-text-body: #4a4a4a;    /* Medium gray for body text */
-  --color-gray-light: #d1d1d1;   /* Light gray */
-  --color-gray-medium: #999999;  /* Medium gray */
-  --color-gray-dark: #2a2a2a;    /* Dark gray */
+  --color-primary: #111111; /* Deep black for text and dark elements */
+  --color-secondary: #f7f5f0; /* Warm off-white (beige) for backgrounds */
+  --color-accent: #3a4e5a; /* Muted teal/gray for highlights */
+  --color-text-body: #4a4a4a; /* Medium gray for body text */
+  --color-gray-light: #d1d1d1; /* Light gray */
+  --color-gray-medium: #999999; /* Medium gray */
+  --color-gray-dark: #2a2a2a; /* Dark gray */
 }
 
 /* ========================================
@@ -873,32 +873,32 @@ body {
   .nav-menu {
     display: flex;
   }
-  
+
   /* Featured grid: 2/3 + 1/3 split */
   .featured-grid {
     grid-template-columns: 2fr 1fr;
   }
-  
+
   /* Article grid: 2 columns */
   .article-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   /* Product grid: 2 columns */
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   /* Footer grid: 2 columns */
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   /* Increase featured headline size */
   .featured-headline {
     font-size: 80px;
   }
-  
+
   /* Cart drawer padding */
   .cart-content {
     padding: 32px;
@@ -911,22 +911,22 @@ body {
   .container {
     padding: 0 32px;
   }
-  
+
   /* Product grid: 4 columns */
   .product-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  
+
   /* Footer grid: 4 columns */
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  
+
   /* Cover title even larger */
   .cover-title {
     font-size: 128px;
   }
-  
+
   /* Featured headline even larger */
   .featured-headline {
     font-size: 96px;
