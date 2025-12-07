@@ -9,8 +9,7 @@ const products = [
     id: 101, // Unique identifier for this product
     name: "Adaptogenic Elixir Drops",
     price: 49.0,
-    image:
-      "https://biocidin.com/cdn/shop/files/Biotonic_f1aeceb0-846b-4819-ad80-e369933c3115_1400x.png?v=1753327443",
+    image: "https://biocidin.com/cdn/shop/files/Biotonic_f1aeceb0-846b-4819-ad80-e369933c3115_1400x.png?v=1753327443",
     category: "Supplements",
   },
   {
@@ -24,8 +23,7 @@ const products = [
     id: 103,
     name: "Organic Linen Eye Pillow",
     price: 35.0,
-    image:
-      "https://www.hanakotherapies.com/cdn/shop/products/EyePillowBlush03.png?v=1636591427",
+    image: "https://www.hanakotherapies.com/cdn/shop/products/EyePillowBlush03.png?v=1636591427",
     category: "Mindfulness",
   },
   {
@@ -44,8 +42,7 @@ const articles = [
     id: "anxiety", // Unique string identifier for URL routing
     title: "Strategies to Ease Anxiety in Under 5 Minutes",
     category: "Mind & Spirit",
-    image:
-      "https://www.mindwellcare.com/mt-content/uploads/2023/08/6425304.webp",
+    image: "https://www.mindwellcare.com/mt-content/uploads/2023/08/6425304.webp",
     author: "Dr. Elara Vance, Clinical Psychologist",
     date: "October 14, 2024",
     content: `
@@ -74,8 +71,7 @@ const articles = [
     id: "oats",
     title: "The Simple Power of Overnight Oats: 5 Recipes",
     category: "Nutrition",
-    image:
-      "https://cdn.loveandlemons.com/wp-content/uploads/2022/09/overnight-oats.jpg",
+    image: "https://cdn.loveandlemons.com/wp-content/uploads/2022/09/overnight-oats.jpg",
     author: "Jenna Rourke, Registered Dietitian",
     date: "September 28, 2024",
     content: `
@@ -156,9 +152,7 @@ let cart = [];
 
 // Get references to important HTML elements we'll manipulate
 const productListEl = document.getElementById("product-list");
-const articleContentContainerEl = document.getElementById(
-  "article-content-container"
-);
+const articleContentContainerEl = document.getElementById("article-content-container");
 const messageBoxEl = document.getElementById("message-box");
 const cartDrawerEl = document.getElementById("cart-drawer");
 const cartBackdropEl = document.getElementById("cart-backdrop");
@@ -352,9 +346,7 @@ function renderProducts() {
   productListEl.innerHTML = products
     .map(
       (product, index) => `
-    <div class="product-card animated-content" style="animation-delay: ${
-      0.1 + index * 0.1
-    }s;">
+    <div class="product-card animated-content" style="animation-delay: ${0.1 + index * 0.1}s;">
       <img src="${product.image}" alt="${product.name}">
       <div class="product-info">
         <p class="product-category">${product.category}</p>
@@ -397,9 +389,7 @@ function renderCart() {
           <div class="cart-item-info">
             <h4 class="cart-item-name">${item.name}</h4>
             <p class="cart-item-category">${item.category}</p>
-            <p class="cart-item-price">$${item.price.toFixed(2)} x ${
-          item.quantity
-        }</p>
+            <p class="cart-item-price">$${item.price.toFixed(2)} x ${item.quantity}</p>
           </div>
           <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -441,7 +431,7 @@ function addToCart(productId) {
 
   // Show success notification
   showMessage(`Added ${product.name} to ritual.`);
-
+  
   // Update cart display (count badge and drawer if open)
   renderCart();
 }
@@ -453,7 +443,7 @@ function addToCart(productId) {
  */
 function removeFromCart(productId) {
   const initialLength = cart.length; // Remember original cart size
-
+  
   // Filter out the item with matching ID
   // filter() returns a new array excluding items where id matches
   cart = cart.filter((item) => item.id !== productId);
@@ -473,7 +463,7 @@ function removeFromCart(productId) {
 document.addEventListener("DOMContentLoaded", () => {
   // Generate product cards on shop page
   renderProducts();
-
+  
   // Initialize cart display (shows 0 items initially)
   renderCart();
 
